@@ -7,5 +7,11 @@
 </div>
 
 ```
-> Brainfuck file
+./Brainfuck
+```
+
+**or**
+
+```
+./Brainfuck file
 ```
