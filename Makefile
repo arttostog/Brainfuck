@@ -1,13 +1,10 @@
 SOURCE_FILES = ./src/main.c ./src/filereader.c ./src/interpreter.c
 
-ifdef OS
-	REMOVE_COMMAND = del Brainfuck.exe
-else
-	REMOVE_COMMAND = rm Brainfuck
-endif
+brainfuck : $(SOURCE_FILES) resources.o
+	gcc $(SOURCE_FILES) resources.o -o brainfuck
 
-Brainfuck : $(SOURCE_FILES)
-	gcc $(SOURCE_FILES) -o Brainfuck
+resources.o : resources.rc
+	windres resources.rc resources.o
 
 clean:
-	$(REMOVE_COMMAND)
+	del brainfuck.exe resources.o
