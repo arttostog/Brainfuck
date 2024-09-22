@@ -2,11 +2,16 @@
 #include <limits.h>
 #include <string.h>
 
-#define LISTS_LENGTH USHRT_MAX
+#define LISTS_LENGTH 65535
 #define UNSIGNED_DATA_TYPE unsigned short
 
 void read_file(char* fileName, char* buffer) {
     FILE* fileWithCommands = fopen(fileName, "r");
+
+    if (fileWithCommands == NULL) {
+        printf("Unable to read file!");
+        return;
+    }
 
     for (char temp[LISTS_LENGTH]; fgets(temp, LISTS_LENGTH, fileWithCommands);) {
         strcat(buffer, temp);
@@ -38,11 +43,8 @@ void brainfuck_interpreter(char* commandsArray, char* dataArray) {
                 scanf("%c", dataArray + dataIndex);
                 break;
             case ']':
-                if (dataArray[dataIndex]) {
-                    UNSIGNED_DATA_TYPE cycleStart = commandIndex;
-                    for (; commandsArray[cycleStart] != '['; --cycleStart);
-                    commandIndex = cycleStart;
-                }
+                if (dataArray[dataIndex])
+                    for (; commandsArray[commandIndex] != '['; --commandIndex);
                 break;
         }
     }
