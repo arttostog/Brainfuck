@@ -1,7 +1,7 @@
 #include "interpreter.h"
 
 void brainfuck_interpreter(char* commandsArray, char* dataArray) {
-    for (UNSIGNED_DATA_TYPE commandIndex, dataIndex; commandsArray[commandIndex] && commandIndex < LISTS_LENGTH; ++commandIndex) {
+    for (UNSIGNED_DATA_TYPE commandIndex = 0, dataIndex = 0; commandsArray[commandIndex] && commandIndex < ARRAYS_LENGTH; ++commandIndex) {
         switch (commandsArray[commandIndex]) {
             case '>':
                 ++dataIndex;
@@ -16,10 +16,10 @@ void brainfuck_interpreter(char* commandsArray, char* dataArray) {
                 --dataArray[dataIndex];
                 break;
             case '.':
-                printf("%c", dataArray[dataIndex]);
+                putchar(dataArray[dataIndex]);
                 break;
             case ',':
-                scanf(" %c", dataArray + dataIndex);
+                dataArray[dataIndex] = getchar();
                 break;
             case ']':
                 if (dataArray[dataIndex])
