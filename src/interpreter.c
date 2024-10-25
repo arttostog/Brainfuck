@@ -1,28 +1,28 @@
 #include "interpreter.h"
 
-void brainfuck_interpreter(char* commandsArray, char* dataArray) {
-    for (UNSIGNED_DATA_TYPE commandIndex = 0, dataIndex = 0; commandsArray[commandIndex] && commandIndex < ARRAYS_LENGTH; ++commandIndex) {
+void brainfuck_interpreter(char* commandsArray, char* dataArray, UNSIGNED_DATA_TYPE* dataIndex) {
+    for (UNSIGNED_DATA_TYPE commandIndex = 0; commandsArray[commandIndex] && commandIndex < ARRAYS_LENGTH; ++commandIndex) {
         switch (commandsArray[commandIndex]) {
             case '>':
-                ++dataIndex;
+                ++*dataIndex;
                 break;
             case '<':
-                --dataIndex;
+                --*dataIndex;
                 break;
             case '+':
-                ++dataArray[dataIndex];
+                ++dataArray[*dataIndex];
                 break;
             case '-':
-                --dataArray[dataIndex];
+                --dataArray[*dataIndex];
                 break;
             case '.':
-                putchar(dataArray[dataIndex]);
+                putchar(dataArray[*dataIndex]);
                 break;
             case ',':
-                dataArray[dataIndex] = getchar();
+                dataArray[*dataIndex] = getchar();
                 break;
             case ']':
-                if (dataArray[dataIndex])
+                if (dataArray[*dataIndex])
                     for (; commandsArray[commandIndex] != '['; --commandIndex);
                 break;
         }

@@ -3,8 +3,10 @@
 exit_code read_file(char* fileName, char* outputBuffer) {
     FILE* fileWithCommands = fopen(fileName, "r");
 
-    if (fileWithCommands == NULL)
+    if (fileWithCommands == NULL) {
+        perror("Unable to read file!");
         return FILE_ERROR;
+    }
 
     for (char temp[ARRAYS_LENGTH]; fgets(temp, ARRAYS_LENGTH, fileWithCommands);) {
         strcat(outputBuffer, temp);

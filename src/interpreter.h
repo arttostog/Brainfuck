@@ -4,6 +4,6 @@
 #include <stdio.h>
 #include "settings.h"
 
-void brainfuck_interpreter(char* commandsArray, char* dataArray);
+void brainfuck_interpreter(char* commandsArray, char* dataArray, UNSIGNED_DATA_TYPE* dataIndex);
 
 #endif
