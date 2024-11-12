@@ -3,7 +3,7 @@
 #include "filereader.h"
 #include "interpreter.h"
 
-exit_code real_time_interpretation(char* commandsArray, char* dataArray, UNSIGNED_DATA_TYPE* dataIndex) {
+exit_code_t real_time_interpretation(char* commandsArray, char* dataArray, UNSIGNED_DATA_TYPE* dataIndex) {
     printf("[ Real-time interpretation | Enter 'e' to exit ]");
     while (1) {
         printf("\n: ");
@@ -17,9 +17,10 @@ exit_code real_time_interpretation(char* commandsArray, char* dataArray, UNSIGNE
     return OK;
 }
 
-exit_code file_interpretiaion(char* filePath, char* commandsArray, char* dataArray, UNSIGNED_DATA_TYPE* dataIndex) {
-    if (read_file(filePath, commandsArray))
-        return FILE_ERROR;
+exit_code_t file_interpretiaion(char* filePath, char* commandsArray, char* dataArray, UNSIGNED_DATA_TYPE* dataIndex) {
+    exit_code_t readFileExitCode = read_file(filePath, commandsArray);
+    if (readFileExitCode)
+        return readFileExitCode;
     
     brainfuck_interpreter(commandsArray, dataArray, dataIndex);
     putchar('\n');

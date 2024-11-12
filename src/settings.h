@@ -6,8 +6,8 @@
 
 #define OK 0
 #define ARGUMENTS_ERROR 1
-#define FILE_ERROR 2
+#define FILE_READ_ERROR 2
 
-typedef char exit_code;
+typedef char exit_code_t;
 
 #endif

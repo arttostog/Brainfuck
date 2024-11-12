@@ -5,6 +5,6 @@
 #include <string.h>
 #include "settings.h"
 
-exit_code read_file(char* fileName, char* outputBuffer);
+exit_code_t read_file(char* fileName, char* outputBuffer);
 
 #endif
