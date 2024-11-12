@@ -6,12 +6,14 @@
 
 </div>
 
-```
-./Brainfuck
-```
-
-**or**
+**For real-time interpretation**
 
 ```
-./Brainfuck file
+./brainfuck
+```
+
+**For file interpretation**
+
+```
+./brainfuck file
 ```
