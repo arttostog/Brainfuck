@@ -1,4 +1,4 @@
-#include "interpreter.h"
+#include <interpreter.h>
 
 void brainfuck_interpreter(char* commandsArray, char* dataArray, UNSIGNED_DATA_TYPE* dataIndex) {
     for (UNSIGNED_DATA_TYPE commandIndex = 0; commandsArray[commandIndex] && commandIndex < ARRAYS_LENGTH; ++commandIndex) {

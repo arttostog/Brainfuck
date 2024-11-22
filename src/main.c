@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "settings.h"
-#include "filereader.h"
-#include "interpreter.h"
+#include <settings.h>
+#include <filereader.h>
+#include <interpreter.h>
 
 exit_code_t real_time_interpretation(char* commandsArray, char* dataArray, UNSIGNED_DATA_TYPE* dataIndex) {
     printf("[ Real-time interpretation | Enter 'e' to exit ]");

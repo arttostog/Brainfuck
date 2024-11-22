@@ -1,4 +1,5 @@
 TARGET = brainfuck
+GCC_FLAGS = -Wall -I./include
 
 ifeq ($(OS), Windows_NT)
 	RESOURCE_FILE = resource.rc
@@ -9,7 +10,7 @@ else
 endif
 
 $(TARGET) : $(RESOURCE_OUTPUT_FILE)
-	gcc -Wall $(wildcard ./src/*.c) $(RESOURCE_OUTPUT_FILE) -o $(TARGET)
+	gcc $(GCC_FLAGS) $(wildcard ./src/*.c) $(RESOURCE_OUTPUT_FILE) -o $(TARGET)
 
 $(RESOURCE_OUTPUT_FILE) : $(RESOURCE_FILE)
 	windres $(RESOURCE_FILE) $(RESOURCE_OUTPUT_FILE)
