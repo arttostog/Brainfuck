@@ -3,8 +3,9 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "settings.h"
 
-exit_code_t read_file(char* fileName, char* outputBuffer);
+void read_file(char* fileName, char* outputBuffer);
 
 #endif

@@ -1,5 +1,9 @@
 TARGET = brainfuck
+
+GCC = gcc
 GCC_FLAGS = -Wall -I./include
+
+WINDRES = windres
 
 ifeq ($(OS), Windows_NT)
 	RESOURCE_FILE = resource.rc
@@ -9,11 +13,11 @@ else
 	CLEAN_COMMAND = rm $(TARGET)
 endif
 
-$(TARGET) : $(RESOURCE_OUTPUT_FILE)
-	gcc $(GCC_FLAGS) $(wildcard ./src/*.c) $(RESOURCE_OUTPUT_FILE) -o $(TARGET)
-
-$(RESOURCE_OUTPUT_FILE) : $(RESOURCE_FILE)
-	windres $(RESOURCE_FILE) $(RESOURCE_OUTPUT_FILE)
+$(TARGET) :
+ifeq ($(OS), Windows_NT)
+	$(WINDRES) $(RESOURCE_FILE) $(RESOURCE_OUTPUT_FILE)
+endif
+	$(GCC) $(GCC_FLAGS) $(wildcard ./src/*.c) $(RESOURCE_OUTPUT_FILE) -o $(TARGET)
 
 clean:
 	$(CLEAN_COMMAND)
