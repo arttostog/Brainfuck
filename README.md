@@ -1,19 +1,21 @@
 <div align="center">
 
-# Brainfuck interpreter on C
+<img src="icon.ico">
 
-### Usage
+# Brainfuck interpreter on C
 
 </div>
 
-**For real-time interpretation**
+## Usage
 
-```
-./brainfuck
+### For real-time interpretation
+
+```bash
+$ ./brainfuck
 ```
 
-**For file interpretation**
+### For file interpretation
 
-```
-./brainfuck file
+```bash
+$ ./brainfuck file
 ```
