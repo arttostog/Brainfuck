@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="icon.ico">
+<img src="icon.ico" alt="Brainfuck" width="128" height="128">
 
 # Brainfuck interpreter on C
 
